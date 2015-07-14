@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev && rm -rf /var
 	&& docker-php-ext-install gd
 RUN docker-php-ext-install mysqli
 
-VOLUME /var/www/html
+VOLUME /var/www
 
 ENV WORDPRESS_VERSION 4.2.2
 ENV WORDPRESS_UPSTREAM_VERSION 4.2.2
@@ -34,10 +34,12 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_UPS
 	&& echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c - \
 	&& tar -xzf wordpress.tar.gz -C /usr/src/ \
 	&& rm wordpress.tar.gz \
-	&& chown -R www-data:www-data /usr/src/wordpress
+	&& chown -R nginx:nginx /usr/src/wordpress
 
-COPY docker-entrypoint.sh /entrypoint.sh
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+WORKDIR /var/www
 
 # grr, ENTRYPOINT resets CMD now
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["php-fpm"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/usr/bin/supervisord"]
