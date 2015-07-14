@@ -1,8 +1,8 @@
-# About this Repo
+# docker-wordpress
 
-This is the Git repo of the official Docker image for [wordpress](https://registry.hub.docker.com/_/wordpress/). See the
-Hub page for the full readme on how to use the Docker image and for information
-regarding contributing and issues.
+This is a fork of the official wordpress docker image.
 
 The full readme is generated over in [docker-library/docs](https://github.com/docker-library/docs),
 specificially in [docker-library/docs/wordpress](https://github.com/docker-library/docs/tree/master/wordpress).
+
+This forks objective is to get wordpress working with php fpm and nginx thanks to [amontaigu/docker-nginx-php](https://github.com/AlbanMontaigu/docker-nginx-php).
