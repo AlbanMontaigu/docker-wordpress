@@ -1,4 +1,21 @@
-FROM php:5.6-fpm
+# ================================================================================================================
+#
+# Wordpress with NGINX and PHP-FPM
+#
+# @see https://github.com/AlbanMontaigu/docker-nginx-php/blob/master/Dockerfile
+# ================================================================================================================
+
+# Base is a nginx install with php
+FROM amontaigu/nginx-php
+
+# Maintainer
+MAINTAINER alban.montaigu@gmail.com
+
+# ----------------------------------------------------------------------------------------------------------------
+# Under this line, this is the official wordpress install process
+#
+# @see https://github.com/docker-library/wordpress/blob/master/fpm/Dockerfile
+# ----------------------------------------------------------------------------------------------------------------
 
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
