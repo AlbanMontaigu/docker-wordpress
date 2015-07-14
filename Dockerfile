@@ -13,7 +13,9 @@ FROM amontaigu/nginx-php
 MAINTAINER alban.montaigu@gmail.com
 
 # Wordpress env variables
-ENV WORDPRESS_VERSION="4.2.2" WORDPRESS_UPSTREAM_VERSION="4.2.2" WORDPRESS_SHA1="d3a70d0f116e6afea5b850f793a81a97d2115039"
+ENV WORDPRESS_VERSION="4.2.2" \
+    WORDPRESS_UPSTREAM_VERSION="4.2.2" \
+    WORDPRESS_SHA1="d3a70d0f116e6afea5b850f793a81a97d2115039"
 
 # System update & install the PHP extensions we need
 RUN apt-get update && apt-get upgrade -y \
@@ -29,6 +31,9 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_UPS
     && tar -xzf wordpress.tar.gz -C /usr/src/ \
     && rm wordpress.tar.gz \
     && chown -R nginx:nginx /usr/src/wordpress
+
+# NGINX tuning for WORDPRESS
+COPY ./nginx/conf/sites-enabled/default.conf /etc/nginx/sites-enabled/default.conf
 
 # Entrypoint to enable live customization
 COPY docker-entrypoint.sh /docker-entrypoint.sh
