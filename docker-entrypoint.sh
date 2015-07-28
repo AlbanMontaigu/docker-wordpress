@@ -126,4 +126,8 @@ if (!$mysql->query('CREATE DATABASE IF NOT EXISTS `' . $mysql->real_escape_strin
 $mysql->close();
 EOPHP
 
+# Fix potential rights issue
+chown -R nginx:nginx ./
+
+# Execute main command
 exec "$@"
