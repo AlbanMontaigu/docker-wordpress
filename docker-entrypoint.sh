@@ -127,7 +127,7 @@ $mysql->close();
 EOPHP
 
 # Fix potential rights issue
-chown -R nginx:nginx ./
+chown -Rfv nginx:nginx .
 
 # Execute main command
 exec "$@"
