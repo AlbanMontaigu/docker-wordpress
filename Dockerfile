@@ -4,6 +4,7 @@
 #
 # @see https://github.com/AlbanMontaigu/docker-nginx-php/blob/master/Dockerfile
 # @see https://github.com/docker-library/wordpress/blob/master/fpm/Dockerfile
+# @see https://wordpress.org/download/release-archive/
 # ================================================================================================================
 
 # Base is a nginx install with php
@@ -13,8 +14,8 @@ FROM amontaigu/nginx-php:5.6.14
 MAINTAINER alban.montaigu@gmail.com
 
 # Wordpress env variables
-ENV WORDPRESS_VERSION="4.3.1" \
-    WORDPRESS_SHA1="b2e5652a6d2333cabe7b37459362a3e5b8b66221"
+ENV WORDPRESS_VERSION="4.4" \
+    WORDPRESS_SHA1="d647a77c63f2ba06578f7747bd4ac295e032f57a"
 
 # System update & install the PHP extensions we need
 RUN apt-get update && apt-get upgrade -y \
