@@ -15,7 +15,7 @@ MAINTAINER alban.montaigu@gmail.com
 
 # Wordpress env variables
 ENV WORDPRESS_VERSION="4.5.2" \
-    WORDPRESS_SHA1="d647a77c63f2ba06578f7747bd4ac295e032f57a"
+    WORDPRESS_SHA1="bab94003a5d2285f6ae76407e7b1bbb75382c36e"
 
 # System update & install the PHP extensions we need
 RUN apt-get update && apt-get upgrade -y \
