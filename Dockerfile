@@ -14,7 +14,7 @@ FROM amontaigu/nginx-php:5.6.21
 MAINTAINER alban.montaigu@gmail.com
 
 # Wordpress env variables
-ENV WORDPRESS_VERSION="4.4" \
+ENV WORDPRESS_VERSION="4.5.2" \
     WORDPRESS_SHA1="d647a77c63f2ba06578f7747bd4ac295e032f57a"
 
 # System update & install the PHP extensions we need
