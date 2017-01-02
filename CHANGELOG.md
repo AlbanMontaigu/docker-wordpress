@@ -1,4 +1,7 @@
 
+## 4.7 (2017-01-02)
+- Update to wordpress 4.7
+
 ## 4.6 (2016-10-17)
 - Update to amontaigu/nginx-php:5.6.27
 
