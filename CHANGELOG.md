@@ -1,6 +1,7 @@
 
 ## 4.7 (2017-01-02)
 - Update to wordpress 4.7
+- Now use of base image with no upgrade (bad for layers reuse and stability)
 
 ## 4.6 (2016-10-17)
 - Update to amontaigu/nginx-php:5.6.27

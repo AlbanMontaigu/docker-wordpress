@@ -18,8 +18,9 @@ ENV WORDPRESS_VERSION="4.7" \
     WORDPRESS_SHA1="1e14144c4db71421dc4ed22f94c3914dfc3b7020"
 
 # System update & install the PHP extensions we need
-RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update \
+    && apt-get install -y libpng12-dev libjpeg-dev \
+    && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
     && docker-php-ext-install gd mysqli bcmath
 
